@@ -14,7 +14,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #fff;
+    background-color: #415d41;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -35,20 +35,26 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #a8b8a8;
     font-weight: bold;
+    text-decoration: underline;
+    
 }
-
+.ooo {
+    color: #ffffff;
+}
 .hero {
     text-align: center;
     padding: 100px;
-    background-image: url('hero-image.jpg');
-    background-size: cover;
-    color: #388e29a4;
+    background-image: url('hero-image2.jpg');
+    background-size:contain;
+    color: #ffffff;
+    text-decoration:overline;
 }
 
 .hero h1 {
     font-size: 48px;
+    
 }
 
 .hero p {
@@ -56,17 +62,13 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
-.btn {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-}
+
 
 .product-display {
     padding: 50px;
     text-align: center;
+    background-image: url('hero-imageeee.jpg');
+    background-size:cover;
 }
 
 .product-list {
@@ -75,8 +77,12 @@ nav ul li a {
     align-items: center; /* Vertically aligns the items */
     flex-wrap: wrap; /* Ensures they wrap when screen size is smaller */
     gap: 20px; /* Optional: Adds space between items */
-}
 
+    
+}
+.product-list  {
+    color: #ffffff;
+}
 .product-item {
     flex: 1 1 30%; /* Ensures each product takes up 30% of the container */
     text-align: center;
@@ -128,4 +134,11 @@ footer {
 footer a {
     color: #28a745;
     text-decoration: none;
+}
+.btn {
+    padding: 2px 30px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
 }
