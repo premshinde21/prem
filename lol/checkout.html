@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - FruitCup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">FruitCup</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="checkout">
+        <h2>Checkout</h2>
+        <p>Review your order before proceeding to payment.</p>
+
+        <div id="order-summary">
+            <!-- The order summary will dynamically display the products from the cart -->
+            <p>Mixed Fruit Jar - ₹149 x 2 = ₹298</p> <!-- Example -->
+            <p>Full Meal Box - ₹249 x 1 = ₹249</p> <!-- Example -->
+            <p>Total: ₹547</p>
+        </div>
+
+        <button onclick="confirmPayment()">Proceed to Payment</button>
+    </section>
+
+    <footer>
+        <p>© 2024 FruitCup | Designed by YourCompany</p>
+    </footer>
+
+    <script>
+        function confirmPayment() {
+            alert('Payment confirmed. Thank you for your order!');
+            window.location.href = "order-confirmation.html"; // Redirect to order confirmation
+        }
+    </script>
+</body>
+</html>
