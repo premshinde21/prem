@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bentoza Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.jpg" alt="Bentoza">
+                <span><b>Bentoza</b></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+            <div class="nav-icons">
+                <input type="text" placeholder="Search your cravings">
+                <button>🔔</button>
+                <button>🛒</button>
+                <a href="#" class="signup-btn">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to bentoza</h1>
+            <h2>Fresh, Healthy & Convenient</h2>
+            <p>Explore our curated & customized fruit jars and Japanese style full meal bento boxes, specially designed for you to keep you fresh, full, and energized in the healthiest way possible.</p>
+            <div class="hero-buttons">
+                <a href="#special-deals" class="order-btn">Order Now</a>
+                <!-- <button class="btn-cart">Cart</button> -->
+                <a href="#" class="btn-cart">Cart</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="fruit-jar.png" alt="Fruit Jar">
+        </div>
+    </section>
+    
+
+    <section id="special-deals" class="product-section">
+        <div class="container">
+            <h2 class="section-title">Exclusive Dishes</h2>
+            <h3 class="section-subtitle">Our Special Deals</h3>
+    
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="fruitjar">Fruitjar</button>
+                <button class="filter-btn" data-filter="breakfast">Breakfast</button>
+                <button class="filter-btn" data-filter="lunch">Lunch</button>
+                <button class="filter-btn" data-filter="dinner">Dinner</button>
+            </div>
+    
+            <div class="product-grid">
+                <div class="product-item" data-category="fruitjar">
+                    <img src="image1.jpg" alt="Mixed FruitJar">
+                    <h4>Mixed FruitJar</h4>
+                    <p>₹99.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="fruitjar">
+                    <img src="image2.jpg" alt="Special FruitJar">
+                    <h4>Special FruitJar</h4>
+                    <p>₹199.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="fruitjar">
+                    <img src="image3.jpg" alt="Customised FruitJar">
+                    <h4>Customised FruitJar</h4>
+                    <p>₹99.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="lunch">
+                    <img src="image4.jpg" alt="Special Bento Box">
+                    <h4>Special Bento Box</h4>
+                    <p>₹99.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="lunch">
+                    <img src="image5.jpg" alt="Japanese Style Bento Box Meal">
+                    <h4>Japanese Style Bento Box Meal</h4>
+                    <p>₹199.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="breakfast">
+                    <img src="image6.jpg" alt="Breakfast Bento Box Meal">
+                    <h4>Breakfast Bento Box Meal</h4>
+                    <p>₹199.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="lunch">
+                    <img src="image7.jpg" alt="Indian Cuisine Bento Box Meal">
+                    <h4>Indian Cuisine Bento Box Meal</h4>
+                    <p>₹199.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="dinner">
+                    <img src="image8.jpg" alt="Dinner Bento Box Meal">
+                    <h4>Dinner Bento Box Meal</h4>
+                    <p>₹99.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+    
+            <button class="view-more-btn">View more</button>
+        </div>
+    </section>
+
+    <!-- Side Cart -->
+     <div id="side-cart" class="side-cart">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart">&times;</button>
+        </div>
+        <ul class="cart-items"></ul>
+        <div class="cart-total">
+            <p>Total: ₹<span id="cart-total-price">0.00</span></p>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay"></div>   
+     <!-- Cart structure inside the side cart  -->
+<div class="side-cart">
+    <ul class="cart-items-container">
+        Items will be dynamically added here
+    </ul>
+    <div class="cart-total">
+        <p>Total: ₹<span id="cart-total-price">0.00</span></p>
+    </div>
+    <button class="btn-checkout">Checkout</button>
+</div>
+    
+<div id="cart-popup" class="hidden">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: ₹<span id="total-price">0</span></p>
+    <button id="checkout-btn">Checkout</button>
+</div> -->
+
+    <script src="app.js"></script>
+
+</body>
+</html>
