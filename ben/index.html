@@ -138,36 +138,21 @@
         </div>
     </section>
 
-    <!-- Side Cart -->
-     <div id="side-cart" class="side-cart">
-        <div class="cart-header">
-            <h2>Your Cart</h2>
-            <button class="close-cart">&times;</button>
-        </div>
-        <ul class="cart-items"></ul>
+<!-- Cart Section (Modal) -->
+<div class="cart-modal">
+    <div class="cart-content">
+        <h2>Your Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </ul>
         <div class="cart-total">
-            <p>Total: ₹<span id="cart-total-price">0.00</span></p>
-            <button class="checkout-btn">Checkout</button>
+            <h3>Total: ₹<span id="total-amount">0.00</span></h3>
         </div>
+        <button class="checkout-btn" onclick="window.location.href='https://rzp.io/i/EF9S9ajA'">Checkout</button>
+
+        <button class="close-cart">Close</button>
     </div>
-    <div id="cart-overlay" class="cart-overlay"></div>   
-     <!-- Cart structure inside the side cart  -->
-<div class="side-cart">
-    <ul class="cart-items-container">
-        Items will be dynamically added here
-    </ul>
-    <div class="cart-total">
-        <p>Total: ₹<span id="cart-total-price">0.00</span></p>
-    </div>
-    <button class="btn-checkout">Checkout</button>
 </div>
-    
-<div id="cart-popup" class="hidden">
-    <h2>Your Cart</h2>
-    <ul id="cart-items"></ul>
-    <p>Total: ₹<span id="total-price">0</span></p>
-    <button id="checkout-btn">Checkout</button>
-</div> -->
 
     <script src="app.js"></script>
 
