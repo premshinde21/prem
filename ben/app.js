@@ -1,4 +1,13 @@
-document.querySelectorAll('.filter-btn').forEach(button => {
+window.onscroll = function() {
+    var navbar = document.getElementById("navbar");
+    if (window.pageYOffset > 0) {
+      navbar.classList.add("sticky");
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  };
+
+  document.querySelectorAll('.filter-btn').forEach(button => {
     button.addEventListener('click', () => {
         const filter = button.getAttribute('data-filter');
 
@@ -15,152 +24,121 @@ document.querySelectorAll('.filter-btn').forEach(button => {
     });
 });
 
-// Variables
+  const filterButtons = document.querySelectorAll('.filter-btn');
+const products = document.querySelectorAll('.product-card');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove active class from other buttons
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    const category = button.textContent.toLowerCase();
+
+    products.forEach(product => {
+      if (category === 'all') {
+        product.style.display = 'block';
+      } else if (product.querySelector('h4').textContent.toLowerCase().includes(category)) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Array to hold cart items
 let cart = [];
-let cartOverlay = document.getElementById('cart-overlay');
-let sideCart = document.getElementById('side-cart');
-let cartItemsContainer = document.querySelector('.cart-items');
-let cartTotalPrice = document.getElementById('cart-total-price');
 
-// Open Cart
-document.querySelector('.btn-cart').addEventListener('click', () => {
-    sideCart.style.right = '0';
-    cartOverlay.style.display = 'block';
-});
+// Selectors
+const addToCartButtons = document.querySelectorAll('.btn-add-cart');
+const cartModal = document.querySelector('.cart-modal');
+const cartItemsList = document.getElementById('cart-items');
+const totalAmountElement = document.getElementById('total-amount');
 
-// Close Cart
-document.querySelector('.close-cart').addEventListener('click', () => {
-    sideCart.style.right = '-100%';
-    cartOverlay.style.display = 'none';
-});
+// Add to Cart button click event
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        const productItem = e.target.closest('.product-item');
+        const name = productItem.getAttribute('data-name');
+        const price = parseFloat(productItem.getAttribute('data-price'));
 
-cartOverlay.addEventListener('click', () => {
-    sideCart.style.right = '-100%';
-    cartOverlay.style.display = 'none';
-});
-
-// Add to Cart Functionality
-document.querySelectorAll('.product-item').forEach(product => {
-    product.addEventListener('click', () => {
-        let productName = product.querySelector('h4').textContent;
-        let productPrice = parseFloat(product.querySelector('p').textContent.replace('₹', ''));
-
-        addToCart(productName, productPrice);
+        addToCart(name, price);
     });
 });
 
+// Add product to cart function
 function addToCart(name, price) {
-    let existingItem = cart.find(item => item.name === name);
-
-    if (existingItem) {
-        existingItem.quantity++;
-    } else {
-        cart.push({ name: name, price: price, quantity: 1 });
-    }
-
-    updateCart();
-}
-
-function updateCart() {
-    cartItemsContainer.innerHTML = '';
-
-    let totalPrice = 0;
-
-    cart.forEach(item => {
-        let itemTotal = item.price * item.quantity;
-        totalPrice += itemTotal;
-
-        let cartItem = document.createElement('li');
-        cartItem.classList.add('cart-item');
-        cartItem.innerHTML = `
-            <h4>${item.name} x${item.quantity}</h4>
-            <p>₹${itemTotal.toFixed(2)}</p>
-        `;
-
-        cartItemsContainer.appendChild(cartItem);
-    });
-
-    cartTotalPrice.textContent = totalPrice.toFixed(2);
-}
-
-// Checkout Functionality
-document.querySelector('.checkout-btn').addEventListener('click', () => {
-    alert('Checkout is not yet implemented.');
-});
-
-// Get buttons
-const addCartButtons = document.querySelectorAll('.btn-add-cart');
-const buyNowButtons = document.querySelectorAll('.btn-buy-now');
-
-// Add to Cart Event
-addCartButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        let productName = button.closest('.product-item').querySelector('h4').textContent;
-        let productPrice = parseFloat(button.closest('.product-item').querySelector('p').textContent.replace('₹', ''));
-        
-        addToCart(productName, productPrice);
-        
-        // Pop-up animation for cart button
-        sideCart.classList.add('active');
-        cartOverlay.classList.add('active');
-    });
-});
-
-// Buy Now Event
-buyNowButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        let productName = button.closest('.product-item').querySelector('h4').textContent;
-        let productPrice = parseFloat(button.closest('.product-item').querySelector('p').textContent.replace('₹', ''));
-        
-        addToCart(productName, productPrice);
-
-        // Redirect to checkout
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        alert('Proceeding to checkout...');
-    });
-});
-
-function addToCart(name, price) {
-    let existingItem = cart.find(item => item.name === name);
-
-    if (existingItem) {
-        existingItem.quantity++;
-    } else {
-        cart.push({ name: name, price: price, quantity: 1 });
-    }
-
-    updateCart();
-}
-
-function updateCart() {
-    cartItemsContainer.innerHTML = '';
-
-    let totalPrice = 0;
-
-    cart.forEach(item => {
-        let itemTotal = item.price * item.quantity;
-        totalPrice += itemTotal;
-
-        let cartItem = document.createElement('li');
-        cartItem.classList.add('cart-item');
-        cartItem.innerHTML = `
-            <h4>${item.name} x${item.quantity}</h4>
-            <p>₹${itemTotal.toFixed(2)}</p>
-        `;
-
-        cartItemsContainer.appendChild(cartItem);
-    });
-
-    cartTotalPrice.textContent = totalPrice.toFixed(2);
+    const existingItem = cart.find(item => item.name === name);
     
-    // Fade-in effect for cart items
-    document.querySelectorAll('.cart-item').forEach(item => {
-        item.style.opacity = '0';
-        setTimeout(() => {
-            item.style.opacity = '1';
-        }, 100);
-    });
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
+
+    updateCart();
 }
 
+// Update cart UI and total price
+function updateCart() {
+    cartItemsList.innerHTML = '';
+    let totalAmount = 0;
+
+    cart.forEach(item => {
+        const cartItem = document.createElement('li');
+        cartItem.innerHTML = `
+            <span>${item.name} - ₹${item.price}</span>
+            <div>
+                <button class="decrease-btn">-</button>
+                <span>${item.quantity}</span>
+                <button class="increase-btn">+</button>
+                <button class="remove-btn">Remove</button>
+            </div>
+        `;
+        cartItemsList.appendChild(cartItem);
+
+        totalAmount += item.price * item.quantity;
+
+        // Increase quantity
+        cartItem.querySelector('.increase-btn').addEventListener('click', () => {
+            item.quantity++;
+            updateCart();
+        });
+
+        // Decrease quantity
+        cartItem.querySelector('.decrease-btn').addEventListener('click', () => {
+            if (item.quantity > 1) {
+                item.quantity--;
+            } else {
+                cart = cart.filter(cartItem => cartItem !== item);
+            }
+            updateCart();
+        });
+
+        // Remove item
+        cartItem.querySelector('.remove-btn').addEventListener('click', () => {
+            cart = cart.filter(cartItem => cartItem !== item);
+            updateCart();
+        });
+    });
+
+    totalAmountElement.innerText = totalAmount.toFixed(2);
+}
+
+// Show and hide cart modal
+document.querySelector('.checkout-btn').addEventListener('click', () => {
+    alert('Proceeding to checkout...');
+});
+
+document.querySelector('.close-cart').addEventListener('click', () => {
+    cartModal.classList.remove('show');
+});
+
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        cartModal.classList.add('show');
+    });
+});
 
 
