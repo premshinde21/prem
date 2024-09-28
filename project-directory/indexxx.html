@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Gaurang Patel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    .container {
+      display: flex;
+      width: 80%;
+      max-width: 1200px;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      overflow: hidden;
+      margin-top: 40px;
+      animation: slideUp 0.6s ease-out forwards;
+    }
+
+    @keyframes slideUp {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Sidebar for Table of Contents */
+    .sidebar {
+      width: 25%;
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: inset -4px 0 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 40px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 10px 0;
+      padding: 10px;
+      display: block;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+    }
+
+    .sidebar a:hover {
+      background-color: #3498db;
+    }
+
+    /* Main Content */
+    .main-content {
+      width: 75%;
+      padding: 40px 50px;
+      display: flex;
+      flex-direction: column;
+      background-color: #ecf0f1;
+      overflow-y: scroll;
+      max-height: 90vh;
+    }
+
+    .main-content h1 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 36px;
+    }
+
+    .main-content p {
+      margin-bottom: 15px;
+      line-height: 1.8;
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* Section Title */
+    .section-title {
+      font-size: 24px;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    /* Skills Layout */
+    .skills-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      font-size: 18px;
+    }
+
+    .skills-content div {
+      padding: 10px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .skills-content div h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #3498db;
+    }
+
+    .skills-content div p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    /* Language Layout */
+    .languages-content {
+      font-size: 18px;
+    }
+
+    .languages-content ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .languages-content li {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    /* Smooth Scroll Effect */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Highlight active section */
+    .active {
+      background-color: #3498db;
+      color: white;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <h2>Gaurang Patel</h2>
+      <nav>
+        <a href="#profile" class="nav-link">Profile</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#languages" class="nav-link">Languages</a>
+        <a href="#hobbies" class="nav-link">Hobbies</a>
+        <a href="#employment" class="nav-link">Employment</a>
+      </nav>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+      <h1 id="profile">Gaurang Patel</h1>
+      <p><strong>Date of Birth:</strong> December 27, 2003</p>
+
+      <div class="section-title" id="profile">Profile</div>
+      <p>I'm Gaurang Patel. I completed my diploma in computer engineering and later joined MAAC Kalyan for 3D animation, which is my passion. In 3D animation, I aim to become a 3D modeler and texture artist.</p>
+
+      <div class="section-title" id="education">Education</div>
+      <ul class="section-list">
+        <li><strong>Computer Engineer</strong> - SSJP Jondhale, Mumbai (Jun 2021 - Mar 2023)</li>
+        <li><strong>3D Animation and VFX</strong> - MAAC, Kalyan (Jan 2023 - Feb 2024)</li>
+      </ul>
+
+      <div class="section-title" id="skills">Skills</div>
+      <div class="skills-content">
+        <div>
+          <h3>3D Modeling</h3>
+          <p>Proficient in creating 3D models for animation and games. Familiar with tools like Blender and Autodesk Maya.</p>
+        </div>
+        <div>
+          <h3>Texturing</h3>
+          <p>Experienced in applying textures to 3D models for realism using tools like Substance Painter and Photoshop.</p>
+        </div>
+        <div>
+          <h3>Lighting</h3>
+          <p>Expert in setting up lighting for different scenes and environments, focusing on realism and aesthetics.</p>
+        </div>
+        <div>
+          <h3>Rendering</h3>
+          <p>Skilled in rendering 3D models using V-Ray and Arnold for high-quality outputs.</p>
+        </div>
+      </div>
+
+      <div class="section-title" id="languages">Languages</div>
+      <div class="languages-content">
+        <ul>
+          <li><strong>English:</strong> Fluent</li>
+          <li><strong>Marathi:</strong> Fluent</li>
+          <li><strong>Gujarati:</strong> Native</li>
+          <li><strong>Hindi:</strong> Intermediate</li>
+        </ul>
+      </div>
+
+      <div class="section-title" id="hobbies">Hobbies</div>
+      <ul class="section-list">
+        <li>Swimming</li>
+        <li>Football</li>
+      </ul>
+
+      <div class="section-title" id="employment">Employment</div>
+      <p>None</p>
+    </div>
+  </div>
+
+  <script>
+    // Add active class to the clicked link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
