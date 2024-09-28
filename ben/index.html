@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.jpg" alt="*******">
+                <span><b>*******</b></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+            <div class="nav-icons">
+                <input type="text" placeholder="Search your cravings">
+                <button>🔔</button>
+                <button>🛒</button>
+                <a href="#" class="signup-btn">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to *******</h1>
+            <h2>Fresh, Healthy & Convenient</h2>
+            <p>Explore our curated & customized fruit jars and Japanese style full meal bento boxes, specially designed for you to keep you fresh, full, and energized in the healthiest way possible.</p>
+            <div class="hero-buttons">
+                <a href="#special-deals" class="order-btn">Order Now</a>
+                <!-- <button class="btn-cart">Cart</button> -->
+                <a href="#" class="btn-cart">Cart</a>
+            </div>
+        </div>
+        <div class="hero-image1">
+            <img src="fruit-jarr.png" alt="Fruit Jar">
+        </div>
+    </section>
+    
+
+    <section id="special-deals" class="product-section">
+        <div class="container">
+            <h2 class="section-title">Exclusive Dishes</h2>
+            <h3 class="section-subtitle">Our Special Deals</h3>
+    
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="fruitjar">jars</button>
+                <button class="filter-btn" data-filter="breakfast">Breakfast</button>
+                <button class="filter-btn" data-filter="lunch">Lunch</button>
+                <button class="filter-btn" data-filter="dinner">Dinner</button>
+            </div>
+    
+            <div class="product-grid">
+                <div class="product-item" data-category="fruitjar">
+                    <img src="image12.jpg" alt="Mixed">
+                    <h4>Mixed</h4>
+                    <p>₹99.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="fruitjar">
+                    <img src="image23.jpg" alt="Special">
+                    <h4>Special</h4>
+                    <p>₹199.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="fruitjar">
+                    <img src="image34.jpg" alt="Customised">
+                    <h4>Customised</h4>
+                    <p>₹99.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="lunch">
+                    <img src="image46.jpg" alt="Special">
+                    <h4>Special</h4>
+                    <p>₹99.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="lunch">
+                    <img src="image57.jpg" alt="Japanese Style">
+                    <h4>Japanese Style</h4>
+                    <p>₹199.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="breakfast">
+                    <img src="image67.jpg" alt="Breakfast">
+                    <h4>Breakfast</h4>
+                    <p>₹199.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="lunch">
+                    <img src="image78.jpg" alt="Indian">
+                    <h4>Indian</h4>
+                    <p>₹199.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-item" data-category="dinner">
+                    <img src="image89.jpg" alt="Dinner">
+                    <h4>Dinner</h4>
+                    <p>₹99.00</p>
+                    <div class="product-buttons">
+                        <button class="btn-add-cart">Add to Cart</button>
+                        <button class="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+    
+            <button class="view-more-btn">View more</button>
+        </div>
+    </section>
+
+<!-- Cart Section (Modal) -->
+<div class="cart-modal">
+    <div class="cart-content">
+        <h2>Your Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </ul>
+        <div class="cart-total">
+            <h3>Total: ₹<span id="total-amount">0.00</span></h3>
+        </div>
+        <button class="checkout-btn" onclick="window.location.href='https://rzp.io/i/Xe39ONty'">Checkout</button>
+
+        <button class="close-cart">Close</button>
+    </div>
+</div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

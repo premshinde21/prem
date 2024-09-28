@@ -1,0 +1,156 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #ff6b6b;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.top-bar a {
+    color: white;
+    margin-left: 10px;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+.main-header .logo img {
+    width: 100px;
+}
+
+.main-header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-header nav ul li {
+    margin-left: 20px;
+}
+
+.main-header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: #f1f1f1;
+}
+
+.hero .hero-text h1 {
+    font-size: 3rem;
+    color: #333;
+}
+
+.hero .hero-text p {
+    font-size: 1.2rem;
+}
+
+.hero-buttons a {
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: white;
+    text-decoration: none;
+}
+
+.hero-image img {
+    width: 400px;
+}
+
+/* Product Section */
+.featured-section h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.featured-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    margin: 10px;
+    width: 250px;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Side Cart */
+.side-cart {
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+}
+
+.cart-total {
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-text {
+        margin-bottom: 20px;
+    }
+
+    .hero-image img {
+        width: 100%;
+    }
+
+    .featured-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}

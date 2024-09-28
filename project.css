@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+.navbar {
+    height: 75px;
+    width: 100%;
+    background-color: rgba(87, 239, 87, 0.8);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h1 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.main {
+    /* display: flex; */
+    color: white;
+    text-align: center;
+    padding-top:50px ;
+    padding-left: 600px;
+}
+
+.ppp {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+    list-style-type: disc;;
+}
+
+a {
+    margin-top: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+    padding-left: 75px;
+    list-style:circle;
+}
+

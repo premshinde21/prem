@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiwi Special - Bentoza</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Same CSS for cart & side cart */
+        .cart {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 400px;
+            height: 100%;
+            background: #fff;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease-in-out;
+            padding: 20px;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .cart.open {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            margin: 0;
+        }
+
+        .cart-items {
+            margin-top: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .cart-item .details {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .cart-item .price {
+            margin-left: 10px;
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .cart-checkout {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cart-checkout button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Bentoza</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-detail">
+        <div class="product-images">
+            <ig src="fruitbx3.jpg" alt="Kiwi Special">
+                <img src="fruitbox3.jpg" alt="Apple Special" class="product-image">
+
+        </div>
+        <div class="product-info">
+            <h1>Kiwi Special</h1>
+            <p>₹180</p>
+            <p>Our Kiwi Special brings you fresh, juicy kiwis straight from the farm to your doorstep.</p>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" value="1" min="1">
+            <button class="btn" onclick="addToCart('Kiwi Special', 180)">Add to Cart</button>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2>Customer Reviews</h2>
+        <p>⭐⭐⭐⭐☆ (4.7/5 based on 15 reviews)</p>
+        <div class="review">
+            <p><strong>David Green:</strong> "Loved the freshness of the kiwis. Perfect for smoothies!"</p>
+        </div>
+        <div class="review">
+            <p><strong>Maria Rodriguez:</strong> "Great quality, very happy with my purchase."</p>
+        </div>
+    </section>
+
+    <!-- Side Cart -->
+    <div id="cart" class="cart">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button onclick="toggleCart()">Close</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be injected here -->
+        </div>
+        <div class="cart-total">Total: ₹<span id="cart-total">0</span></div>
+        <div class="cart-checkout">
+            <button onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Bentoza Fruitbox Store</p>
+    </footer>
+
+    <script>
+        // Toggle Cart Visibility
+        function toggleCart() {
+            document.getElementById('cart').classList.toggle('open');
+        }
+
+        // Add to Cart Function
+        function addToCart(product, price) {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Check if the item is already in the cart
+            const existingItem = cart.find(item => item.product === product);
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({ product, price, quantity });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+            alert(product + " has been added to your cart for ₹" + price);
+        }
+
+        // Update Cart UI
+        function updateCartUI() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const cartTotal = document.getElementById('cart-total');
+            
+            cartItemsContainer.innerHTML = ''; // Clear cart UI
+            let total = 0;
+            let count = 0;
+
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                
+                itemElement.innerHTML = `
+                    <div class="details">
+                        <strong>${item.product}</strong><br>
+                        Quantity: ${item.quantity}
+                    </div>
+                    <div class="price">₹${item.price * item.quantity}</div>
+                `;
+
+                cartItemsContainer.appendChild(itemElement);
+                total += item.price * item.quantity;
+                count += item.quantity;
+            });
+
+            cartCount.textContent = count;
+            cartTotal.textContent = total;
+        }
+
+        // Initialize Cart on Page Load
+        window.onload = function() {
+            updateCartUI();
+        }
+
+        // Checkout Function (dummy for now)
+        function checkout() {
+            alert("Proceeding to checkout");
+        }
+    </script>
+</body>
+</html>
